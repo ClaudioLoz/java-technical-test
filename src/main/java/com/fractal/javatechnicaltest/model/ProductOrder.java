@@ -1,5 +1,6 @@
 package com.fractal.javatechnicaltest.model;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,27 +15,27 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Order {
+public class ProductOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
 
-    @Column(name = "code", nullable = false)
+    @Column(name = "code")
     private String code;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "date")
     private Date date;
 
-    @Column(name = "total_amount", nullable = false)
+    @Column(name = "total_amount")
     private Integer totalAmount;
 
-    @Column(name = "final_price", nullable = false)
-    private Integer finalPrice;
+    @Column(name = "final_price")
+    private Double finalPrice;
 
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "productOrder")
     List<ProductsInOrder> productsInOrders;
 
 

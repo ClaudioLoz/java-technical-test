@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @AllArgsConstructor
@@ -16,18 +15,18 @@ import java.util.Date;
 public class ProductsInOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "order_id")
-    Order order;
+    @JoinColumn(name = "product_order_id",nullable = false)
+    ProductOrder productOrder;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "product_id",nullable = false)
     Product product;
 
-    @Column(name = "amount", nullable = false)
+    @Column(name = "amount")
     private Integer amount;
 
 
